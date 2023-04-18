@@ -269,6 +269,23 @@
   }
 }
 
+.chat-message-container-response {
+  max-width: var(--message-max-width);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: slide-in ease 0.3s;
+  flex: 1;
+
+  &:hover {
+    .chat-message-top-actions {
+      opacity: 1;
+      right: 10px;
+      pointer-events: all;
+    }
+  }
+}
+
 .chat-message-user > .chat-message-container {
   align-items: flex-end;
 }
@@ -307,6 +324,7 @@
   word-break: break-word;
   border: var(--border-in-light);
   position: relative;
+  width: 100%;
 }
 
 .chat-message-top-actions {

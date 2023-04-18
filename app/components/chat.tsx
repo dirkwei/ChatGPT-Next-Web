@@ -21,6 +21,237 @@ import AutoIcon from "../icons/auto.svg";
 import BottomIcon from "../icons/bottom.svg";
 import StopIcon from "../icons/pause.svg";
 
+const mockData = {
+  queries: [
+    {
+      measures: ["CyFeedbackOnlineStory.shouldBeAcceptedCount"],
+      filters: [
+        {
+          member: "CyFeedbackOnlineStory.shouldBeAcceptedTime",
+          operator: "inDateRange",
+          values: ["2023-04-01", "2023-04-30"],
+        },
+        {
+          member: "CyFeedbackOnlineStory.productEnable",
+          operator: "equals",
+          values: ["1"],
+        },
+      ],
+      dimensions: ["CyFeedbackOnlineStory.product"],
+      order: {},
+    },
+    {
+      measures: [
+        "CyFeedbackOnlineStory.acceptedCount",
+        "CyFeedbackOnlineStory.timelyAcceptedCount",
+      ],
+      filters: [
+        {
+          member: "CyFeedbackOnlineStory.acceptedTime",
+          operator: "inDateRange",
+          values: ["2023-04-01", "2023-04-30"],
+        },
+        {
+          member: "CyFeedbackOnlineStory.productEnable",
+          operator: "equals",
+          values: ["1"],
+        },
+      ],
+      dimensions: ["CyFeedbackOnlineStory.product"],
+      order: {},
+    },
+    {
+      measures: ["CyFeedbackOnlineStory.pausedCount"],
+      filters: [
+        {
+          member: "CyFeedbackOnlineStory.pausedTime",
+          operator: "inDateRange",
+          values: ["2023-04-01", "2023-04-30"],
+        },
+        {
+          member: "CyFeedbackOnlineStory.productEnable",
+          operator: "equals",
+          values: ["1"],
+        },
+      ],
+      dimensions: ["CyFeedbackOnlineStory.product"],
+      order: {},
+    },
+    {
+      measures: ["CyFeedbackOnlineStory.scheduledCount"],
+      filters: [
+        {
+          member: "CyFeedbackOnlineStory.scheduledTime",
+          operator: "inDateRange",
+          values: ["2023-04-01", "2023-04-30"],
+        },
+        {
+          member: "CyFeedbackOnlineStory.productEnable",
+          operator: "equals",
+          values: ["1"],
+        },
+      ],
+      dimensions: ["CyFeedbackOnlineStory.product"],
+      order: {},
+    },
+  ],
+  data: [
+    {
+      "CyFeedbackOnlineStory.product": "22430_star测试111",
+      "CyFeedbackOnlineStory.shouldBeAcceptedCount": "7",
+      "CyFeedbackOnlineStory.acceptedCount": "7",
+      "CyFeedbackOnlineStory.timelyAcceptedCount": "7",
+      "CyFeedbackOnlineStory.scheduledCount": "0",
+    },
+    {
+      "CyFeedbackOnlineStory.product": "22485_Test-cbb-yunl",
+      "CyFeedbackOnlineStory.shouldBeAcceptedCount": "3",
+      "CyFeedbackOnlineStory.acceptedCount": "3",
+      "CyFeedbackOnlineStory.timelyAcceptedCount": "1",
+      "CyFeedbackOnlineStory.scheduledCount": "0",
+    },
+    {
+      "CyFeedbackOnlineStory.product": "22499_QA测试产品",
+      "CyFeedbackOnlineStory.shouldBeAcceptedCount": "2",
+      "CyFeedbackOnlineStory.acceptedCount": "2",
+      "CyFeedbackOnlineStory.timelyAcceptedCount": "2",
+      "CyFeedbackOnlineStory.pausedCount": "1",
+      "CyFeedbackOnlineStory.scheduledCount": "0",
+    },
+    {
+      "CyFeedbackOnlineStory.product": "22428_star需求-测试名称编辑",
+      "CyFeedbackOnlineStory.shouldBeAcceptedCount": "1",
+      "CyFeedbackOnlineStory.scheduledCount": "0",
+    },
+    {
+      "CyFeedbackOnlineStory.product": "23357_xj专属测试产品2",
+      "CyFeedbackOnlineStory.shouldBeAcceptedCount": "1",
+      "CyFeedbackOnlineStory.acceptedCount": "1",
+      "CyFeedbackOnlineStory.timelyAcceptedCount": "1",
+      "CyFeedbackOnlineStory.scheduledCount": "0",
+    },
+    {
+      "CyFeedbackOnlineStory.product": "25229_xj专属测试产品1",
+      "CyFeedbackOnlineStory.shouldBeAcceptedCount": "1",
+      "CyFeedbackOnlineStory.acceptedCount": "1",
+      "CyFeedbackOnlineStory.timelyAcceptedCount": "1",
+      "CyFeedbackOnlineStory.scheduledCount": "0",
+    },
+  ],
+  annotation: {
+    dimensions: {
+      "CyFeedbackOnlineStory.product": {
+        title: "产业BG-线上需求 产品",
+        shortTitle: "产品",
+        type: "string",
+      },
+    },
+    timeDimensions: {},
+    measures: {
+      "CyFeedbackOnlineStory.shouldBeAcceptedCount": {
+        title: "产业BG-线上需求 应受理数",
+        shortTitle: "应受理数",
+        type: "number",
+        drillMembers: [
+          "CyFeedbackOnlineStory.feedbackId",
+          "CyFeedbackOnlineStory.title",
+          "CyFeedbackOnlineStory.typeName",
+          "CyFeedbackOnlineStory.statusFriendlyName",
+        ],
+        drillMembersGrouped: {
+          measures: [],
+          dimensions: [
+            "CyFeedbackOnlineStory.feedbackId",
+            "CyFeedbackOnlineStory.title",
+            "CyFeedbackOnlineStory.typeName",
+            "CyFeedbackOnlineStory.statusFriendlyName",
+          ],
+        },
+      },
+      "CyFeedbackOnlineStory.acceptedCount": {
+        title: "产业BG-线上需求 受理数",
+        shortTitle: "受理数",
+        type: "number",
+        drillMembers: [
+          "CyFeedbackOnlineStory.feedbackId",
+          "CyFeedbackOnlineStory.title",
+          "CyFeedbackOnlineStory.typeName",
+          "CyFeedbackOnlineStory.statusFriendlyName",
+        ],
+        drillMembersGrouped: {
+          measures: [],
+          dimensions: [
+            "CyFeedbackOnlineStory.feedbackId",
+            "CyFeedbackOnlineStory.title",
+            "CyFeedbackOnlineStory.typeName",
+            "CyFeedbackOnlineStory.statusFriendlyName",
+          ],
+        },
+      },
+      "CyFeedbackOnlineStory.timelyAcceptedCount": {
+        title: "产业BG-线上需求 及时受理数",
+        shortTitle: "及时受理数",
+        type: "number",
+        drillMembers: [
+          "CyFeedbackOnlineStory.feedbackId",
+          "CyFeedbackOnlineStory.title",
+          "CyFeedbackOnlineStory.typeName",
+          "CyFeedbackOnlineStory.statusFriendlyName",
+        ],
+        drillMembersGrouped: {
+          measures: [],
+          dimensions: [
+            "CyFeedbackOnlineStory.feedbackId",
+            "CyFeedbackOnlineStory.title",
+            "CyFeedbackOnlineStory.typeName",
+            "CyFeedbackOnlineStory.statusFriendlyName",
+          ],
+        },
+      },
+      "CyFeedbackOnlineStory.pausedCount": {
+        title: "产业BG-线上需求 暂缓数",
+        shortTitle: "暂缓数",
+        type: "number",
+        drillMembers: [
+          "CyFeedbackOnlineStory.feedbackId",
+          "CyFeedbackOnlineStory.title",
+          "CyFeedbackOnlineStory.typeName",
+          "CyFeedbackOnlineStory.statusFriendlyName",
+        ],
+        drillMembersGrouped: {
+          measures: [],
+          dimensions: [
+            "CyFeedbackOnlineStory.feedbackId",
+            "CyFeedbackOnlineStory.title",
+            "CyFeedbackOnlineStory.typeName",
+            "CyFeedbackOnlineStory.statusFriendlyName",
+          ],
+        },
+      },
+      "CyFeedbackOnlineStory.scheduledCount": {
+        title: "产业BG-线上需求 已排期",
+        shortTitle: "已排期",
+        type: "number",
+        drillMembers: [
+          "CyFeedbackOnlineStory.feedbackId",
+          "CyFeedbackOnlineStory.title",
+          "CyFeedbackOnlineStory.typeName",
+          "CyFeedbackOnlineStory.statusFriendlyName",
+        ],
+        drillMembersGrouped: {
+          measures: [],
+          dimensions: [
+            "CyFeedbackOnlineStory.feedbackId",
+            "CyFeedbackOnlineStory.title",
+            "CyFeedbackOnlineStory.typeName",
+            "CyFeedbackOnlineStory.statusFriendlyName",
+          ],
+        },
+      },
+    },
+  },
+};
+
 import {
   Message,
   SubmitKey,
@@ -52,6 +283,8 @@ import styles from "./home.module.scss";
 import chatStyle from "./chat.module.scss";
 
 import { Input, Modal, showModal } from "./ui-lib";
+import ChartRenderer from "@/app/components/bi/ChartRenderer";
+import {lineChartData} from "@/app/components/bi/utils/auto-chart-type";
 
 const Markdown = dynamic(
   async () => memo((await import("./markdown")).Markdown),
@@ -725,7 +958,7 @@ export function Chat(props: {
                 isUser ? styles["chat-message-user"] : styles["chat-message"]
               }
             >
-              <div className={styles["chat-message-container"]}>
+              <div className={isUser? styles["chat-message-container"]: styles["chat-message-container-response"]}>
                 <div className={styles["chat-message-avatar"]}>
                   <Avatar role={message.role} />
                 </div>
@@ -761,7 +994,6 @@ export function Chat(props: {
                             </div>
                           </>
                         )}
-
                         <div
                           className={styles["chat-message-top-action"]}
                           onClick={() => copyToClipboard(message.content)}
@@ -784,6 +1016,17 @@ export function Chat(props: {
                     fontSize={fontSize}
                     parentRef={scrollRef}
                   />
+                  {/*{!isUser && <div style={{width: '100%', height: 300}}>*/}
+                  {/*  <ChartRenderer resultRoot={mockData as any}  vizState={{*/}
+                  {/*    chartType: 'table',*/}
+                  {/*    chartConfig: {},*/}
+                  {/*  }}/>*/}
+                  {/*</div>}*/}
+                  {!isUser && <div>
+                    <ChartRenderer resultRoot={mockData as any}  vizState={{
+                      chartConfig: {},
+                    }}/>
+                  </div>}
                 </div>
                 {!isUser && !message.preview && (
                   <div className={styles["chat-message-actions"]}>
